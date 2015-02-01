@@ -34,7 +34,6 @@ void acldisplay::parseACL(QString acl)
 {
     result = acl.split("\n");
     for(int i=0; i < result.length(); i++){
-
         if(i <= 2){
             qDebug() << result[i];
             temp = result[i].split(": ");
@@ -47,5 +46,24 @@ void acldisplay::parseACL(QString acl)
                 ui->groupNameLabel->setText(temp[1]);
             }
         }
+
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
