@@ -6,6 +6,7 @@ acldisplay::acldisplay(QWidget *parent) :
     ui(new Ui::acldisplay)
 {
     ui->setupUi(this);
+    ui->tableWidget->setColumnCount(2);
 }
 
 acldisplay::~acldisplay()
@@ -61,19 +62,18 @@ void acldisplay::parseACL(QString acl)
         }
     }
 
-    qDebug() << tableItems.keys();
-    ui->tableWidget->setRowCount(1);
+    qDebug() << tableItems.size();
+    ui->tableWidget->setRowCount(tableItems.size());
 
-    qDebug() << result.length() << result;
     for(int i = 3; i < result.length() - 2; i++){
-        QTableWidgetItem *item2 = new QTableWidgetItem();
-        item2 = tableItems.value(i);
-        ui->tableWidget->setItem(i - 3, 0, item2);
-        qDebug() << i << " , " << i - 3;
-        ui->tableWidget->insertRow(1);
-    }
+        QTableWidgetItem *label = new QTableWidgetItem();
+        label->setText(permissions.value(i)[0]);
+        QTableWidgetItem *checkBox = new QTableWidgetItem();
+        checkBox = tableItems.value(i);
 
-    qDebug() << ui->tableWidget->rowCount();
+        ui->tableWidget->setItem(i - 3, 0, label);
+        ui->tableWidget->setItem(i - 3, 1, checkBox);
+    }
 }
 
 
