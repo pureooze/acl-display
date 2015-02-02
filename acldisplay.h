@@ -35,7 +35,7 @@ private:
     QStringList temp;
 
     QHash<int, QStringList>         permissions;
-    QMap<int, QTableWidgetItem>    tableItems;
+    QMap<int, QTableWidgetItem *>    tableItems;
 };
 
 #endif // ACLDISPLAY_H

@@ -27,7 +27,6 @@ void acldisplay::on_pathWidget_returnPressed()
     QString     stdERR = p.readAllStandardError();
 
     parseACL(stdOUT);
-    qDebug() << temp;
 }
 
 void acldisplay::parseACL(QString acl)
@@ -52,11 +51,17 @@ void acldisplay::parseACL(QString acl)
             QTableWidgetItem *item = new QTableWidgetItem;
             item->setCheckState(Qt::Checked);
 
-            tableItems.insert(i, *item);
+            tableItems.insert(i, item);
             permissions[i] = result[i].split(":");
         }
     }
     qDebug() << tableItems.keys();
+    QTableWidgetItem *item2 = new QTableWidgetItem();
+    item2 = tableItems.value(4);
+    ui->tableWidget->setRowCount(1);
+    ui->tableWidget->setItem(1,0,item2);
+    //ui->tableWidget->insertRow(1);
+    qDebug() << ui->tableWidget->rowCount();
 }
 
 
