@@ -6,7 +6,7 @@ acldisplay::acldisplay(QWidget *parent) :
     ui(new Ui::acldisplay)
 {
     ui->setupUi(this);
-    ui->tableWidget->setColumnCount(2);
+    ui->tableWidget->setColumnCount(4);
 }
 
 acldisplay::~acldisplay()
@@ -72,7 +72,7 @@ void acldisplay::parseACL(QString acl)
         checkBox = tableItems.value(i);
 
         ui->tableWidget->setItem(i - 3, 0, label);
-        ui->tableWidget->setItem(i - 3, 1, checkBox);
+        ui->tableWidget->setItem(i - 3, 2, checkBox);
     }
 }
 
