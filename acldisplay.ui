@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>682</width>
-    <height>456</height>
+    <width>418</width>
+    <height>406</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,13 +24,28 @@
      </rect>
     </property>
    </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>110</y>
+      <width>381</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>State</string>
+     </property>
+    </column>
+   </widget>
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>20</x>
       <y>40</y>
       <width>381</width>
-      <height>57</height>
+      <height>62</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -93,7 +108,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>682</width>
+     <width>418</width>
      <height>20</height>
     </rect>
    </property>

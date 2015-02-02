@@ -4,7 +4,9 @@
 #include <QMainWindow>
 #include <QProcess>
 #include <QDebug>
-#include <QStringRef>
+#include <QHash>
+#include <QMap>
+#include <QTableWidgetItem>
 
 namespace Ui {
 class acldisplay;
@@ -26,10 +28,14 @@ private:
 
     void parseACL(QString);
 
-    QString         path;
-    QString         command;
-    QStringList     result;
-    QStringList     temp;
+    QString path;
+    QString command;
+
+    QStringList result;
+    QStringList temp;
+
+    QHash<int, QStringList>         permissions;
+    QMap<int, QTableWidgetItem>    tableItems;
 };
 
 #endif // ACLDISPLAY_H

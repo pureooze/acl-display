@@ -33,7 +33,10 @@ void acldisplay::on_pathWidget_returnPressed()
 void acldisplay::parseACL(QString acl)
 {
     result = acl.split("\n");
-    for(int i=0; i < result.length(); i++){
+    ui->tableWidget->setRowCount(0);
+
+    for(int i=0; i < result.length() - 2; i++){
+
         if(i <= 2){
             qDebug() << result[i];
             temp = result[i].split(": ");
@@ -45,10 +48,15 @@ void acldisplay::parseACL(QString acl)
             }else if(i ==2){
                 ui->groupNameLabel->setText(temp[1]);
             }
+        }else{
+            QTableWidgetItem *item = new QTableWidgetItem;
+            item->setCheckState(Qt::Checked);
+
+            tableItems.insert(i, *item);
+            permissions[i] = result[i].split(":");
         }
-
-
     }
+    qDebug() << tableItems.keys();
 }
 
 

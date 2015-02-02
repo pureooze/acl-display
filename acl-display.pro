@@ -18,3 +18,6 @@ SOURCES += main.cpp\
 HEADERS  += acldisplay.h
 
 FORMS    += acldisplay.ui
+
+OTHER_FILES += \
+    img/ui-2015-02-01.png
