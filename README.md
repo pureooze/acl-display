@@ -1,7 +1,7 @@
 # acl-display
 GUI for ACLs on Linux
 
-![alt tag](../img/ui-2015-02-01.png)
+![alt tag](https://ushamim.files.wordpress.com/2015/02/ui-2015-02-01.png)
 
 ### SEE LICENSE FILE FOR DETAILS ABOUT THE LICENSE
 A simple program that can be used to view and edit ACLs
