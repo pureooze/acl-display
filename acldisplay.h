@@ -27,15 +27,18 @@ private:
     Ui::acldisplay *ui;
 
     void parseACL(QString);
+    void checkPermission(QTableWidgetItem* , QString);
 
     QString path;
     QString command;
 
     QStringList result;
     QStringList temp;
+    QStringList symPermission;
 
-    QHash<int, QStringList>         permissions;
-    QMap<int, QTableWidgetItem *>    tableItems;
+    QHash<int, QStringList>                         permissions;
+    QMap<int, QTableWidgetItem *>                   checkBoxes;
+    QMap<int, QMap<int, QTableWidgetItem *> *>      tableItems;
 };
 
 #endif // ACLDISPLAY_H

@@ -54,29 +54,46 @@ void acldisplay::parseACL(QString acl)
 
         }else{
             // all these entities are ACL attributes that the user should be able to change
-            QTableWidgetItem *item = new QTableWidgetItem;
-            item->setCheckState(Qt::Checked);
+            for(int x = 0; x < 3; x++){
+                QTableWidgetItem *item = new QTableWidgetItem;
+                item->setCheckState(Qt::Checked);
+                checkBoxes.insert(i, item);
+            }
 
-            tableItems.insert(i, item);
             permissions[i] = result[i].split(":");
         }
     }
 
-    qDebug() << tableItems.size();
+    qDebug() << permissions;
     ui->tableWidget->setRowCount(tableItems.size());
 
     for(int i = 3; i < result.length() - 2; i++){
-        QTableWidgetItem *label = new QTableWidgetItem();
-        label->setText(permissions.value(i)[0]);
+        QTableWidgetItem *type = new QTableWidgetItem();
+        QTableWidgetItem *entity = new QTableWidgetItem();
         QTableWidgetItem *checkBox = new QTableWidgetItem();
-        checkBox = tableItems.value(i);
+        type->setText(permissions.value(i)[0]);
+        entity->setText(permissions.value(i)[1]);
+        checkBox = checkBoxes.value(i);
+        symPermission = permissions.value(i)[2].split("");
 
-        ui->tableWidget->setItem(i - 3, 0, label);
+        for(int j = 1; j <= 3; j++){
+            checkPermission(checkBox, symPermission[j]);
+        }
+
+        ui->tableWidget->setItem(i - 3, 0, type);
+        ui->tableWidget->setItem(i - 3, 1, entity);
         ui->tableWidget->setItem(i - 3, 2, checkBox);
     }
 }
 
-
+void acldisplay::checkPermission(QTableWidgetItem* checkBox, QString symPermission)
+{
+    if(symPermission != "-"){
+        checkBox->setCheckState(Qt::Checked);
+    }else{
+        checkBox->setCheckState(Qt::Unchecked);
+    }
+}
 
 
 
